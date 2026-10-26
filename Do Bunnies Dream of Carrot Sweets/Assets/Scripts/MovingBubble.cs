@@ -8,6 +8,7 @@ public class MovingBubble : MonoBehaviour
     public Transform EndPoint;
     public float moveSpeed = 1.5f;
     public float BubbleTimeToFall = 3f;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 nextPosition;
 
@@ -15,6 +16,8 @@ public class MovingBubble : MonoBehaviour
     {
         transform.position = StartPoint.position;
         nextPosition = EndPoint.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.white;
     }
 
     // Update is called once per frame
@@ -34,13 +37,37 @@ public class MovingBubble : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(BubblePopTimer());
+            StartCoroutine(ChangeRed());
         }
     }
 
-    IEnumerator BubblePopTimer()
+    private IEnumerator BubblePopTimer()
     {
+        //spriteRenderer.color = Color.yellow;
+        //yield return new WaitForSeconds(BubbleTimeToFall/3f);
+        //spriteRenderer.color = Color.orange;
+        //yield return new WaitForSeconds(BubbleTimeToFall / 3f);
+        //spriteRenderer.color = Color.red;
+        //yield return new WaitForSeconds(BubbleTimeToFall / 3f);
         yield return new WaitForSeconds(BubbleTimeToFall);
         transform.position = StartPoint.position;
         nextPosition = EndPoint.position;
+        spriteRenderer.color = Color.white;
+    }
+    private IEnumerator ChangeRed()
+    {
+        Color startColor = Color.white;
+        Color endColor = Color.red;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < BubbleTimeToFall)
+        {
+            timeElapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(timeElapsed / BubbleTimeToFall);
+            spriteRenderer.color = Color.Lerp(startColor, endColor, t);
+            yield return null;
+        }
+
+        spriteRenderer.color = endColor; // Ensure exact end color
     }
 }
