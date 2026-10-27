@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &18550008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+  m_PrefabInstance: {fileID: 2020371052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &109907004
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,11 +829,59 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &1024804234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+  m_PrefabInstance: {fileID: 3132689313504985272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!251 &1024804237
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024804234}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!1 &1106226090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+  m_PrefabInstance: {fileID: 1810990371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1125743936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1040302029801881882, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
   m_PrefabInstance: {fileID: 1810990371}
   m_PrefabAsset: {fileID: 0}
+--- !u!251 &1125743939
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106226090}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!4 &1162508434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1040302029801881882, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
@@ -1221,6 +1274,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5154381068658814719, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
       propertyPath: m_Name
       value: Cloud (4)
@@ -1228,13 +1285,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125743939}
   m_SourcePrefab: {fileID: 100100000, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
 --- !u!4 &1870017332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1040302029801881882, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
   m_PrefabInstance: {fileID: 2020371052}
   m_PrefabAsset: {fileID: 0}
+--- !u!251 &1870017333
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18550008}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!4 &1919601451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5853057376529812849, guid: 33204bec2aa88d74d874c350548fd668, type: 3}
@@ -1288,6 +1367,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5154381068658814719, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
       propertyPath: m_Name
       value: Cloud (1)
@@ -1295,7 +1378,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1870017333}
   m_SourcePrefab: {fileID: 100100000, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
 --- !u!4 &2045661808 stripped
 Transform:
@@ -1545,6 +1631,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5154381068658814719, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
       propertyPath: m_Name
       value: Cloud
@@ -1552,7 +1642,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7616496065899124604, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1024804237}
   m_SourcePrefab: {fileID: 100100000, guid: e8384b2951b5cb1419b1710e8641deb9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
