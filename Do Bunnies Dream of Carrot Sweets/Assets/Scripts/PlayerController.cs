@@ -20,11 +20,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidBody;
     private bool isGrounded;
+    private Animator playerAnimator;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         rigidBody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerControls.Movement.Jump.performed += OnJump;
     }
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour
         PlayerInput();
         CheckIsGrounded();
         HandleVariableJump();
+        UpdateAnimations();
+        FlipSprite();
     }
 
     private void FixedUpdate()
@@ -90,6 +96,24 @@ public class PlayerController : MonoBehaviour
         if (releasedJumpEarly)
         {
             rigidBody.linearVelocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
+        }
+    }
+
+    private void UpdateAnimations()
+    {
+        playerAnimator.SetFloat("moveX", movement.x);
+        playerAnimator.SetBool("isGrounded", isGrounded);
+    }
+
+    private void FlipSprite()
+    {
+        if (movement.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 }
