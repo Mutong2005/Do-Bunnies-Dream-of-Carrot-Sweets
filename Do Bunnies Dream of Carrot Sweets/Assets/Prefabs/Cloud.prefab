@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4746882342759421728}
   - component: {fileID: 5154381068658814719}
   - component: {fileID: 2466999110878638752}
+  - component: {fileID: 6674783438436870600}
   m_Layer: 3
   m_Name: Cloud
   m_TagString: Untagged
@@ -158,3 +159,15 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6674783438436870600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616496065899124604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290354fdd1fe57f469bf8d5704b5b2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

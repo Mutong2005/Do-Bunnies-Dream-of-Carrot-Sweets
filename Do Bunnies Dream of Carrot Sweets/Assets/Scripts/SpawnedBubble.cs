@@ -47,6 +47,7 @@ public class SpawnedBubble : MonoBehaviour
         nextPosition = StartPoint.position;
         moveSpeed *= 0.2f;
         yield return new WaitForSeconds(BubbleTimeToFall);
+        SoundEffectManager.Play("Bubble");
         Destroy(gameObject);
     }
     private IEnumerator ChangeRed()

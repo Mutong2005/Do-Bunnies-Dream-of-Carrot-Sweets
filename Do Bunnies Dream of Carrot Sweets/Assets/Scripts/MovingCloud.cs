@@ -44,6 +44,7 @@ public class MovingCould : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            SoundEffectManager.Play("Cloud");
             collision.gameObject.transform.parent = transform;
         }
     }
