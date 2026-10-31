@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnedBubble
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
-  moveSpeed: 1.5
+  moveSpeed: 2
   BubbleTimeToFall: 3

@@ -18,6 +18,19 @@ public class ObjectSpawner : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
+        // Spawn at start
+
+            // Spawn the object
+            GameObject newSpawnS = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+
+            // 2. Grab the script component on the spawned object
+            SpawnedBubble objectScriptS = newSpawnS.GetComponent<SpawnedBubble>();
+             if (objectScriptS != null)
+            {
+                objectScriptS.EndPoint = ParentEndPoint;
+                objectScriptS.StartPoint = ParentStartPoint;            
+            }
+
         while (true)
         {
             // Wait for the specified interval
