@@ -869,14 +869,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a1f303fcdc5e7334dac657c0cdfaef43, type: 3}
   - name: Bubble
     audioClips:
-    - {fileID: 8300000, guid: 467301c08fdc7fa4a801f7acdbf48289, type: 3}
-    - {fileID: 8300000, guid: dbac731c88e2ad149887647be47270cc, type: 3}
-    - {fileID: 8300000, guid: 4eda6cd9738c43641bc9029a211f1bc3, type: 3}
+    - {fileID: 8300000, guid: 68e80b8bb093cec41bf9c1e93e207499, type: 3}
+    - {fileID: 8300000, guid: d0041eec0cd9aee4faac5686783bbffd, type: 3}
+    - {fileID: 8300000, guid: 40fe25d226d813d4cb09a368f2c99732, type: 3}
   - name: Cloud
     audioClips:
     - {fileID: 8300000, guid: 7f79ae513c9c7104b8741fa800d1b412, type: 3}
     - {fileID: 8300000, guid: a86a6714696b5c14eadfb89e72311dfa, type: 3}
-    - {fileID: 8300000, guid: 0b9a330bdc0cf814c93c58b49cb0b094, type: 3}
 --- !u!82 &1418296404
 AudioSource:
   m_ObjectHideFlags: 0
