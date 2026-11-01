@@ -6,7 +6,6 @@ public class SoundEffectManager : MonoBehaviour
     private static SoundEffectManager Instance;
     private static AudioSource audioSource;
     private static SoundEffectLibrary soundEffectLibrary;
-    [SerializeField] private UnityEngine.UI.Slider slider;
 
     private void Awake()
     {
@@ -32,18 +31,5 @@ public class SoundEffectManager : MonoBehaviour
 
     }
 
-    public static void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-    }
 
-    public void OnValueChanged()
-    {
-        SetVolume(slider.value);
-    }
-
-    void Start()
-    {
-        slider.onValueChanged.AddListener(delegate {OnValueChanged();});
-    }
 }

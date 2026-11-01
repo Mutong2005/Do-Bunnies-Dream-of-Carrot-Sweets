@@ -8,8 +8,6 @@ public class MusicManager : MonoBehaviour
     public  AudioClip backgroundMusicStart;
     public  AudioClip backgroundMusicPlay;
 
-    [SerializeField] private Slider musicSlider;
-
     private void Awake()
     {
         if(Instance == null)
@@ -22,8 +20,10 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        ChangeMusic(backgroundMusicStart);
+
+        Instance.ChangeMusic(backgroundMusicStart);
     }
+    
 
       void OnEnable()
     {
@@ -59,38 +59,4 @@ public class MusicManager : MonoBehaviour
             audioSource.Play();
         }
     }
-
-
-    // // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-    //     musicSlider.onValueChanged.AddListener(delegate {OnValueChanged();});
-    //     if(backgroundMusicStart != null)
-    //     {
-    //         PlayBackgroundMusic(backgroundMusicStart);
-    //     }   
-
-    // }
-
-    public void OnValueChanged()
-    {
-        SetVolume(musicSlider.value);
-    }
-
-    public static void SetVolume(float volume)
-    {
-        Instance.audioSource.volume = volume;
-    }
-
-    // public void PlayBackgroundMusic(AudioClip audioClip = null)
-    // {
-    //     if(audioClip != null)
-    //     {
-    //         audioSource.clip = audioClip;
-    //     }
-    //     if (audioSource.clip != null)
-    //     {
-    //         audioSource.Play();
-    //     }
-    // }
 }
