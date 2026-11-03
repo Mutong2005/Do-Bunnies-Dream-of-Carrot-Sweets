@@ -11,12 +11,14 @@ public class SpawnedBubble : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 nextPosition;
     private bool isFalling;
+    private bool isDestroyed;
 
     private Animator bubbleAnimator;
 
     private void Awake()
     {
         bubbleAnimator = GetComponent<Animator>();
+        
     }
 
     void Start()
@@ -26,6 +28,7 @@ public class SpawnedBubble : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.white;
         isFalling = false;
+        isDestroyed = false;
     }
 
     // Update is called once per frame
@@ -43,11 +46,42 @@ public class SpawnedBubble : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isFalling)
         {
+            collision.gameObject.transform.parent = transform;
             bubbleAnimator.SetTrigger("isSquished");
             isFalling = true;
             StartCoroutine(BubblePopTimer());
-            StartCoroutine(ChangeRed());
+            //StartCoroutine(ChangeRed());
         }
+        else
+        {
+            // if(collision.gameObject.CompareTag("Player"))
+            // {
+            //     isDestroyed = true;
+            //     SoundEffectManager.Play("Bubble");
+            //     bubbleAnimator.SetTrigger("isPopping");
+            //     Destroy(gameObject);
+            // }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+            if(collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.transform.parent = null;
+                isDestroyed = true;
+                SoundEffectManager.Play("Bubble");
+                bubbleAnimator.SetTrigger("isPopping");
+                StartCoroutine(DestroyWithStyle());
+                //yield return new WaitForSeconds(0.4f);
+                //Destroy(gameObject);
+            }
+    }
+    private IEnumerator DestroyWithStyle()
+    {
+        yield return new WaitForSeconds(0.2f);
+        //bubbleAnimator.ResetTrigger("isPopping");
+        Destroy(gameObject, bubbleAnimator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     private IEnumerator BubblePopTimer()
@@ -55,9 +89,12 @@ public class SpawnedBubble : MonoBehaviour
         nextPosition = StartPoint.position;
         moveSpeed *= 0.2f;
         yield return new WaitForSeconds(BubbleTimeToFall - 0.3f);
-        SoundEffectManager.Play("Bubble");
-        bubbleAnimator.SetTrigger("isPopping");
+        if (!isDestroyed){
+            SoundEffectManager.Play("Bubble");
+            bubbleAnimator.SetTrigger("isPopping");
+        }
         yield return new WaitForSeconds(0.3f);
+        if(!isDestroyed)
         Destroy(gameObject);
     }
     private IEnumerator ChangeRed()
