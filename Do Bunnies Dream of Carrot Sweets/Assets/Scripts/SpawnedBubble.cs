@@ -12,6 +12,13 @@ public class SpawnedBubble : MonoBehaviour
     private Vector3 nextPosition;
     private bool isFalling;
 
+    private Animator bubbleAnimator;
+
+    private void Awake()
+    {
+        bubbleAnimator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         transform.position = StartPoint.position;
@@ -36,6 +43,7 @@ public class SpawnedBubble : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isFalling)
         {
+            bubbleAnimator.SetTrigger("isSquished");
             isFalling = true;
             StartCoroutine(BubblePopTimer());
             StartCoroutine(ChangeRed());
@@ -48,6 +56,7 @@ public class SpawnedBubble : MonoBehaviour
         moveSpeed *= 0.2f;
         yield return new WaitForSeconds(BubbleTimeToFall - 0.3f);
         SoundEffectManager.Play("Bubble");
+        bubbleAnimator.SetTrigger("isPopping");
         yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
